@@ -10,7 +10,7 @@ the real thing when it exists; nothing else has to change.
 import os
 from collections.abc import Iterator
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, event
 from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./app.db")
@@ -20,6 +20,20 @@ DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./app.db")
 _connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
 
 engine = create_engine(DATABASE_URL, connect_args=_connect_args, future=True)
+
+if DATABASE_URL.startswith("sqlite"):
+    # SQLite ignores `ON DELETE CASCADE` unless foreign key enforcement is
+    # turned on for the connection -- without this, deleting a document would
+    # silently leave its chunks and chats behind on the SQLite fallback, but
+    # not on Postgres, which is exactly the kind of fallback-only bug the
+    # cascade-delete requirement exists to avoid.
+    @event.listens_for(engine, "connect")
+    def _enable_sqlite_foreign_keys(dbapi_connection, connection_record):
+        cursor = dbapi_connection.cursor()
+        cursor.execute("PRAGMA foreign_keys=ON")
+        cursor.close()
+
+
 SessionLocal = sessionmaker(bind=engine, autoflush=False, expire_on_commit=False)
 
 

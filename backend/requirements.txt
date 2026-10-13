@@ -13,3 +13,13 @@ pytest>=8.3
 # back to show on the development dashboard.
 pytest-cov>=5.0
 ruff>=0.6
+
+# BEGIN QUORQ ARCHITECTURE PACKAGES
+bcrypt
+google-genai
+numpy
+PyJWT
+pypdf
+python-docx
+python-multipart
+# END QUORQ ARCHITECTURE PACKAGES

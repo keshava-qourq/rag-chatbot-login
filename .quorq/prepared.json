@@ -1,0 +1,61 @@
+{
+  "key": {
+    "app_design_id": "3afcb8a4-581a-426c-9bb8-2b9e780fcf27",
+    "app_design_version": 1,
+    "architecture_document_id": "7c5ba4b3-012b-4951-84f5-9a0afd283f1e",
+    "architecture_version": 1
+  },
+  "outcome": "prepared",
+  "packages": [
+    {
+      "ecosystem": "pypi",
+      "error": "Install could not run: Docker could not run the command: docker: open /dev/stdin: no such device or address.",
+      "name": "google-genai",
+      "status": "unverified",
+      "version": ""
+    },
+    {
+      "ecosystem": "pypi",
+      "error": "Install could not run: Docker could not run the command: docker: open /dev/stdin: no such device or address.",
+      "name": "pypdf",
+      "status": "unverified",
+      "version": ""
+    },
+    {
+      "ecosystem": "pypi",
+      "error": "Install could not run: Docker could not run the command: docker: open /dev/stdin: no such device or address.",
+      "name": "python-docx",
+      "status": "unverified",
+      "version": ""
+    },
+    {
+      "ecosystem": "pypi",
+      "error": "Install could not run: Docker could not run the command: docker: open /dev/stdin: no such device or address.",
+      "name": "python-multipart",
+      "status": "unverified",
+      "version": ""
+    },
+    {
+      "ecosystem": "pypi",
+      "error": "Install could not run: Docker could not run the command: docker: open /dev/stdin: no such device or address.",
+      "name": "numpy",
+      "status": "unverified",
+      "version": ""
+    },
+    {
+      "ecosystem": "pypi",
+      "error": "Install could not run: Docker could not run the command: docker: open /dev/stdin: no such device or address.",
+      "name": "bcrypt",
+      "status": "unverified",
+      "version": ""
+    },
+    {
+      "ecosystem": "pypi",
+      "error": "Install could not run: Docker could not run the command: docker: open /dev/stdin: no such device or address.",
+      "name": "PyJWT",
+      "status": "unverified",
+      "version": ""
+    }
+  ],
+  "prepared_by_run": "d7cca169-bce4-4b61-97ff-a827d15b98ee"
+}
